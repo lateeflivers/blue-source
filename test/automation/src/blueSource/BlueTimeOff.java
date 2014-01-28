@@ -16,21 +16,27 @@ import org.openqa.selenium.support.ui.Select;
 public class BlueTimeOff extends BluePage{
 
 
-	private List<WebElement> trCollection;			//List of rows
+	private List<WebElement> trCollection;				
 
 	private int maxRows;
 	private int targetRow;
 	
 	
+
+	private static final int VACATION_TYPE_COL = 5;
+	private static final int HALF_DAY_COL = 6;
+	private static final int DAYS_USED = 0; 
+	private static final int DAYS_MAX = 1;
+	
+	/*
+	 * Constants for paths. If the script breaks unexpectedly, 
+	 * the path of the web object may need to be updated
+	 */
 	private static final String FLOATING_HOLIDAYS_WELL = ".//span[4]";
 	private static final String SICK_DAYS_WELL= ".//span[2]";
 	private static final String VACATION_DAYS_WELL = ".//span[3]";
-	private static final int VACATION_TYPE_COL = 5;
-	private static final int HALF_DAY_COL = 6;
 	private static final String EDIT_COL = ".//td[7]/a/span";
 	private static final String DELETE_COL = ".//td[8]/a/span";
-	private static final int DAYS_USED = 0;
-	private static final int DAYS_MAX = 1;
 	private static final String SaveTimeOffBtn = ".//*[@id='vacation_form']/input[11]";
 	private static final String alertMessageXpath ="html/body/div[1]/div[1]/div[1]";
 	private static final String BackBtnXpath = ".//*[@id='vacation_form']/a";
@@ -136,14 +142,13 @@ public class BlueTimeOff extends BluePage{
 		if(0 == maxRows)
 			return;
 		
+		//TODO turn this for loop into its own method for use in edit and delete vacation methods
 		for(WebElement trElement : trCollection){
 			
-			//When found get ID of row
+			/*When found get ID of row*/
 			if(row == targetRow){
-				//Delete row
+				/*Click the edit button for that row*/
 				trElement.click();
-		
-			 // System.out.println(rowID);
 			  break;
 			}
 			targetRow++;
@@ -166,20 +171,18 @@ public class BlueTimeOff extends BluePage{
 		trCollection = driver.findElements(By.xpath(DELETE_COL));	
 		if(0 == maxRows)
 			return;
-		
+		//TODO turn this for loop into its own method for use in edit and delete vacation methods	
 		for(WebElement trElement : trCollection){
 			
-			//When found get ID of row
+			/*When found get ID of row*/
 			if(row == targetRow){
-				//Delete row
+				/*Delete row*/
 				trElement.click();
-		
-			 // System.out.println(rowID);
 			  break;
 			}
 			targetRow++;
 		}
-		//getWebElementBy(By.xpath(".//*[@id='"+rowID+"']"+"/td["+DELETE_COL+"]")).click();
+
 		
 	}
 	
@@ -218,6 +221,23 @@ public class BlueTimeOff extends BluePage{
 		floatingHolidays[DAYS_MAX] = Integer.parseInt(days[DAYS_MAX]);
 	}
 	
+	/**
+	 * Sets the days used for the approbate field
+	 * @author Lateef
+	 * Jan 24, 2014
+	 * @param field target field FLOATING_HOLIDAYS_WELL, SICK_DAY_WELL, or VACATION_DAYS_WELL
+	 * @return String array of days used and estimated max
+	 */
+	private String[] setDaysUsedAndMax(String field){
+		String pdoDayField = getWebElementBy(By.xpath(field)).getText();
+		String[] pdoDay = pdoDayField.split(" ");
+		String[] days = pdoDay[0].split("/");
+		
+		return new String[]{days[0],days[1]};
+		
+	}
+
+
 	/**
 	 * Gets a employee's number of used sick days
 	 * @author Lateef
@@ -315,23 +335,6 @@ public class BlueTimeOff extends BluePage{
 	
 	
 	/**
-	 * Sets the days used for the approbate field
-	 * @author Lateef
-	 * Jan 24, 2014
-	 * @param field target field FLOATING_HOLIDAYS_WELL, SICK_DAY_WELL, or VACATION_DAYS_WELL
-	 * @return String array of days used and estimated max
-	 */
-	private String[] setDaysUsedAndMax(String field){
-		String pdoDayField = getWebElementBy(By.xpath(field)).getText();
-		String[] pdoDay = pdoDayField.split(" ");
-		String[] days = pdoDay[0].split("/");
-		
-		return new String[]{days[0],days[1]};
-		
-	}
-
-
-	/**
 	 * Gets the correct Number of Rows, Resets 'targetRow' to 1
 	 * @author Lateef
 	 * Jan 24, 2014
@@ -375,15 +378,7 @@ public class BlueTimeOff extends BluePage{
 	}
 	
 	
-	/*
-	//html/body/div[1]/div/div[2] Time off successfully updated. 
-	//html/body/div[1]/div/div[2] Vacation successfully deleted. 
-	//html/body/div[1]/div/div[2] Time off successfully saved. 
-	//html/body/div[1]/div/div[2]
-	//					The following [1] errors occured:
-	// 						 Date range includes date already included for PDO.
-	*/
-	
+
 	/**
 	 * Checks to see if the update to vacations was successful
 	 * @author Lateef
@@ -417,7 +412,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 23, 2014
 	 * @return
 	 */
-	public String getAlertMessage(){
+	private String getAlertMessage(){
 		if(isElementPresentAndDisplayed(By.xpath(alertMessageXpath))==true)
 			return getWebElementBy(By.xpath(alertMessageXpath)).getText();
 		return null;

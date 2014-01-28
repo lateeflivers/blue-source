@@ -14,9 +14,9 @@ import org.openqa.selenium.WebDriver;
  */
 public class BlueEmployee extends BluePage{
 
-	private boolean generalInfoExpanded;// = true;
-	private boolean projectInfoExpanded;// = false;
-	private boolean timeOffInfoExpanded;// = false;
+	private boolean generalInfoExpanded;
+	private boolean projectInfoExpanded;
+	private boolean timeOffInfoExpanded;
 	
 	private static final String manageTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[2]";
 	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";
@@ -46,6 +46,31 @@ public class BlueEmployee extends BluePage{
 		getWebElementBy(By.xpath(manageGeneralXpath)).click();
 	}
 	
+	/**
+	 * Clicks the Manage button for "Project Info"
+	 */
+	public void manageProjectInfo(){
+		getWebElementBy(By.xpath(manageProjectInfoXpath)).click();
+	}
+
+	/**
+	 * Navigates to the Manage time off screen
+	 * @return new BlueTimeOff driver
+	 */
+	public BlueTimeOff manageTimeOff(){
+		getWebElementBy(By.xpath(manageTimeOffXpath)).click();
+		return new BlueTimeOff(driver);
+	}
+	
+	/**
+	 * Clicks the view button on the Employee page
+	 * @return new BlueTimeOff object
+	 */
+	public BlueTimeOff viewTimeOff(){
+		getWebElementBy(By.xpath(viewTimeOffXpath)).click();
+		return new BlueTimeOff(driver);
+	}
+
 	/**
 	 * If the general tab is not already expanded. Click to expand
 	 */
@@ -77,7 +102,7 @@ public class BlueEmployee extends BluePage{
 	 * If the Time Off  tab is not already expanded. Click to expand
 	 */
 	public void expandTimeOffTab(){
-		if(isExpanded(projectInfoExpanded)==false)
+		if(isExpanded(timeOffInfoExpanded)==false)
 		{
 			getWebElementBy(By.xpath(timeOffTabBarXpath)).click();
 
@@ -89,38 +114,21 @@ public class BlueEmployee extends BluePage{
 	
 	
 	/**
-	 * Returns if a panel is expanded or not
-	 * @param panel	If true table is expanded else it is false
-	 * @return True or False
-	 */
-	private boolean isExpanded(boolean panel){
-		return panel;
-	}
-	
-	/**
-	 * Clicks the Manage button for "Project Info"
-	 */
-	public void manageProjectInfo(){
-		getWebElementBy(By.xpath(manageProjectInfoXpath)).click();
-	}
-	
-	/**
-	 * Navigates to the Manage time off screen
-	 * @return new BlueTimeOff driver
-	 */
-	public BlueTimeOff manageTimeOff(){
-		getWebElementBy(By.xpath(manageTimeOffXpath)).click();
-		return new BlueTimeOff(driver);
-	}
-
-
-	/**
 	 * Navigates back to the index
 	 * @return new BlueIndex driver
 	 */
 	public BlueIndex goBack(){
 		getWebElementBy(By.xpath(backButtonXpath)).click();
 		return new BlueIndex(driver);
+	}
+
+	/**
+	 * Returns if a panel is expanded or not
+	 * @param panel	If true table is expanded else it is false
+	 * @return True or False
+	 */
+	private boolean isExpanded(boolean panel){
+		return panel;
 	}
 	
 	

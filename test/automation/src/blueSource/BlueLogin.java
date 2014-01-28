@@ -20,6 +20,10 @@ public class BlueLogin extends BluePage {
 		
 	}*/
 	
+	/**
+	 * Constructor for BlueLogin Page
+	 * @param driver 
+	 */
 	public BlueLogin(WebDriver driver){
 		super(driver);
 	}
