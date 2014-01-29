@@ -3,6 +3,8 @@ package blueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import com.thoughtworks.selenium.Selenium;
+
 
 /**
  * Employee Page
@@ -11,12 +13,15 @@ import org.openqa.selenium.WebDriver;
  * TODO logic for General info Modal
  * TODO logic for Project info Modal
  * TODO logic to see which Tabs are expanded
+ * TODO 
  */
 public class BlueEmployee extends BluePage{
 
 	private boolean generalInfoExpanded;
 	private boolean projectInfoExpanded;
 	private boolean timeOffInfoExpanded;
+
+	
 	
 	private static final String manageTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[2]";
 	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";
