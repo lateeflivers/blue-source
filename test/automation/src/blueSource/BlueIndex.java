@@ -3,6 +3,7 @@ package blueSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+
 /**
  * Index Page
  * @author Lateef Livers
@@ -14,6 +15,7 @@ public class BlueIndex extends BluePage {
 	private String employeeFirstName;
 	private String employeeLastName;
 	private String employeeFullName;
+
 	
 	/**
 	 * Constructor for index page with first and last name of an employee

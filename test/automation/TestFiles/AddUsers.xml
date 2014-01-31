@@ -1,0 +1,38 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">	
+	<test name="TestBlueTimeOffRequestManager"  preserve-order="true">
+		<parameter name="firstName" value="linley" />
+		<parameter name="lastName" value="love" />
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="UserRole" value="Normal" />
+		<parameter name="empfirstName" value="test"/>
+		<parameter name="emplastName" value="manager"/>
+		<parameter name="StartDate" value="2014-01-31"/>	
+		<parameter name="Dept" value="Rural"/>
+		<parameter name="Role" value="Manager"/>
+		<parameter name="Manager" value="Kristi Collins"/>
+		<parameter name="Level" value="Consulting Manager"/>
+		<parameter name="Location" value="Greensboro"/>
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>					
+			<class name="blueTests.AddUser">
+			    <methods>
+			        <include name="LoginIntoSite"/>
+			        <include name="ClickAddNewEmployee"/>
+			  		<include name="AddNewUser"/>   
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>	
+
+	
+</suite>
+	

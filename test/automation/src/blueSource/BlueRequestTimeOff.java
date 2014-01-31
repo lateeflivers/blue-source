@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 public class BlueRequestTimeOff extends BluePage {
 	
 	private static final String EmailManagerButtonXpath = "html/body/div[1]/div[2]/a";
-	private static final String RequestTimeOffButtonXpath = "html/body/div[1]/div[2]/a";
+	private static final String RequestTimeOffButtonXpath = "html/body/div[1]/div[3]/button";
 	
 	private static final String StartDateNewModalXpath = ".//*[@id='start_date-new']";
 	private static final String EndDateNewModalXpath = ".//*[@id='end_date-new']";
@@ -64,6 +64,7 @@ public class BlueRequestTimeOff extends BluePage {
 	 * @param endDate Correct Format should be YYYY-MM-DD
 	 */
 	public void EnterEndDate(String endDate){
+		getWebElementBy(By.xpath(EndDateNewModalXpath)).clear();	
 		getWebElementBy(By.xpath(EndDateNewModalXpath)).sendKeys(endDate);
 	}
 	

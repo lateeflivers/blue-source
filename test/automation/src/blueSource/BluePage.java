@@ -1,5 +1,7 @@
 package blueSource;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -24,7 +26,7 @@ public abstract class BluePage {
 	protected WebElement element;
 	public String url;
 	private static final String showInactiveXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/label";
-	private static final String addEmployeeBtnXpath = ".//*[@id='ng-app']/div[2]/div/div[3]/button";
+	private static final String addEmployeeBtnXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/button";
 	/**
 	 * Constructor base for pages
 	 * @param driver
@@ -42,6 +44,7 @@ public abstract class BluePage {
 	public BluePage(WebDriver driver){
 		this.driver = driver;
 		this.driver.manage().window().maximize();
+		this.driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 	
 	/**
