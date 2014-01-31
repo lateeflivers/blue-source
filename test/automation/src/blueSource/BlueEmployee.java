@@ -136,6 +136,8 @@ public class BlueEmployee extends BluePage{
 		return panel;
 	}
 	
+	/*Manage Employee Modal*/
+	//TODO add all fields for Manage Employee Modal
 	
 	
 }
