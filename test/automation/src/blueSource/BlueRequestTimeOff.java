@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /* TODO before going any further on details page. We need to know what should be covered on the modals
- * TODO Logic for determining vacation accrual rates
+ * TODO Logic for determining vacation accrual rates Feb 3
  * TODO Method for grabbing number of Min/Max days for each PDO type. 
  */
 public class BlueRequestTimeOff extends BluePage {
@@ -32,8 +32,8 @@ public class BlueRequestTimeOff extends BluePage {
 	 * @param row
 	 */
 	public void CancelRequestPDO(int row){
-		//TODO Stub Grab logic from delete row methdod in BlueTimeOff. 
-		//TODO Maybe this is where you'd use an interface?
+		//TODO Stub Grab logic from delete row method in BlueTimeOff. 
+
 	}
 
 	/**
@@ -45,7 +45,6 @@ public class BlueRequestTimeOff extends BluePage {
 
 	public BlueRequestTimeOff(WebDriver driver) {
 		super(driver);
-		// TODO Auto-generated constructor stub
 	}
 
 	/* Request Time Off Modal */
@@ -70,7 +69,6 @@ public class BlueRequestTimeOff extends BluePage {
 	
 	/**
 	 * Enters the PDO type 
-	 * TODO Should this be renamed to 'PDO Type'?
 	 * @param vacationType Options are Sick, Vacation, Floating Holiday
 	 */
 	public void SelectVacationType(String vacationType){

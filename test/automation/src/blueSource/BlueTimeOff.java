@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.Select;
  * Time off details page
  * @author Lateef Livers
  * Jan 22, 2014
- * TODO Logic for editing vacations already entered in table
  */
 public class BlueTimeOff extends BluePage{
 
@@ -142,7 +141,7 @@ public class BlueTimeOff extends BluePage{
 		if(0 == maxRows)
 			return;
 		
-		//TODO turn this for loop into its own method for use in edit and delete vacation methods
+		
 		for(WebElement trElement : trCollection){
 			
 			/*When found get ID of row*/
@@ -155,7 +154,6 @@ public class BlueTimeOff extends BluePage{
 		}
 		
 	}
-	
 	
 	
 	/**
@@ -171,7 +169,7 @@ public class BlueTimeOff extends BluePage{
 		trCollection = driver.findElements(By.xpath(DELETE_COL));	
 		if(0 == maxRows)
 			return;
-		//TODO turn this for loop into its own method for use in edit and delete vacation methods	
+	
 		for(WebElement trElement : trCollection){
 			
 			/*When found get ID of row*/

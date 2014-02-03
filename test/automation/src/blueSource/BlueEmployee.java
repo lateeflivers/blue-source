@@ -10,10 +10,8 @@ import com.thoughtworks.selenium.Selenium;
  * Employee Page
  * @author Lateef
  * Jan 22, 2014
- * TODO logic for General info Modal
- * TODO logic for Project info Modal
- * TODO logic to see which Tabs are expanded
- * TODO 
+ * TODO logic for General info Modal Feb 3, 2014 Update: in progress see ManageEmployeeModal in B
+ * TODO logic for Project info Modal Feb 3, 2014 Not yet started
  */
 public class BlueEmployee extends BluePage{
 
@@ -21,7 +19,6 @@ public class BlueEmployee extends BluePage{
 	private boolean projectInfoExpanded;
 	private boolean timeOffInfoExpanded;
 
-	
 	
 	private static final String manageTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[2]";
 	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";

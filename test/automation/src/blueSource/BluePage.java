@@ -13,12 +13,9 @@ import org.openqa.selenium.WebElement;
  * Template page for all pages on BlueSource
  * @author Lateef Livers
  * Jan 22, 2014
- * TODO Make 'Projects' Page *BlueProject
- * TODO Make 'Directory' Page *BlueDirectory
- * TODO Make 'Employees' Page *BlueEmployee
+ * TODO Make 'Projects' Page *BlueProject. Needs to be created Feb 3, 2014
+ * TODO Make 'Directory' Page *BlueDirectory Page needs to be created Feb 3, 2014
  * TODO Make 'My Information' Page *BlueInfomation
- * TODO Logic for clicking the 'BlueSource logo' link Should return user to index
- * TODO Need to be able to see know what page I'm on.
  */
 public abstract class BluePage {
 	
@@ -133,6 +130,7 @@ public abstract class BluePage {
 	
 	/**
 	 * Click the "Directory" link at the top of the page
+	 * TODO BlueDirectory class file not currently created Feb 3
 	 */
 	//public BlueDirectory(){
 	public void Directory(){
@@ -160,10 +158,10 @@ public abstract class BluePage {
 	 * Click the "Employees" link at the top of the page
 	 * @return a new BlueEmployee if true, NULL otherwise
 	 */	
-	public BlueEmployee clickEmployees(){
+	public BlueIndex clickEmployees(){
 		if(isElementPresent(By.linkText("Employees"))==true){
 			driver.findElement(By.linkText("Employees")).click();
-		return new BlueEmployee(driver);
+			return new BlueIndex(driver);
 		}
 		return null;
 	}
