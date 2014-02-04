@@ -31,9 +31,9 @@ public class BlueTimeOff extends BluePage{
 	 * Constants for paths. If the script breaks unexpectedly, 
 	 * the path of the web object may need to be updated
 	 */
-	private static final String FLOATING_HOLIDAYS_WELL = ".//span[4]";
-	private static final String SICK_DAYS_WELL= ".//span[2]";
-	private static final String VACATION_DAYS_WELL = ".//span[3]";
+	private static final String FLOATING_HOLIDAYS_WELL = ".//div/span[4]";
+	private static final String SICK_DAYS_WELL= ".//div/span[2]";
+	private static final String VACATION_DAYS_WELL = ".//div/span[3]";
 	private static final String EDIT_COL = ".//td[7]/a/span";
 	private static final String DELETE_COL = ".//td[8]/a/span";
 	private static final String SaveTimeOffBtn = ".//*[@id='vacation_form']/input[11]";
@@ -397,7 +397,7 @@ public class BlueTimeOff extends BluePage{
 	 * @return True if successful, False otherwise
 	 */
 	public Boolean isDeleteSuccessful(){
-		if(getAlertMessage().contains("Vacation successfully deleted."))
+		if(getAlertMessage().contains("Time off successfully deleted."))
 			return true;
 		else
 			return false;

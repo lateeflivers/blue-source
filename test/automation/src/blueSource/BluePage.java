@@ -68,6 +68,10 @@ public abstract class BluePage {
 		return driver.getCurrentUrl();
 	}
 	
+	public void setURL(String url){
+		this.url = url;
+	}
+
 	/**
 	 * Gets the WebElement by the chosen method
 	 * @param locator
@@ -208,11 +212,6 @@ public abstract class BluePage {
 	public void addEmployee(){
 		getWebElementBy(By.xpath(addEmployeeBtnXpath)).click();
 
-	}
-	
-
-	public void setURL(String url){
-		this.url = url;
 	}
 	
 }
