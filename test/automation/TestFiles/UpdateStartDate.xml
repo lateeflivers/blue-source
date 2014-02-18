@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" verbose="1">
+	<test name="UpdateStartDate"  preserve-order="true">
+		<parameter name="firstName" value="adam" />
+		<parameter name="lastName" value="thomas" />
+		<parameter name="TargetFirst" value="Stephen"/>
+		<parameter name="TargetLast" value="King"/>
+		<parameter name="password" value="anything" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
+		<parameter name="UserRole" value="Normal" />
+		<parameter name="Date" value="2011-02-17"/>
+		<parameter name="VacationType" value="Vacation"/>	
+	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
+		<classes>					
+			<class name="blueTests.VerifyVacationRequest">
+			    <methods>
+	 		        <include name="LoginIntoSite"/>
+	 		        <include name="findEmployee"/>
+	  		  		<include name="changeStartDate"/>  
+	  		  		<include name="checkAccuralRates"/> 
+	<!--  			    <include name="verifyAdminViewIsNotVisible" />
+				    <include name="navigateToAdminPagePreLogoutUser" />
+				    <include name="verifyLogout"/>
+				    <include name="navigateToAdminPostLogoutUser" />		-->        
+			    </methods>
+			    
+			</class>
+
+		</classes>
+	</test>	
+	
+		
+</suite>

@@ -163,6 +163,7 @@ public class BlueManageEmployeeModal {
 	}
 	
 	private void setPath(String text, By path){
+		driver.findElement(path).clear();
 		driver.findElement(path).sendKeys(text);
 	}
 	

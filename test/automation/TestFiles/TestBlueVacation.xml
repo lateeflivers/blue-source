@@ -5,9 +5,9 @@
 		<parameter name="firstName" value="adam" />
 		<parameter name="lastName" value="thomas" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="StartDate" value="2014-02-17"/>
-		<parameter name="EndDate" value="2014-02-17"/>
+		<parameter name="EndDate" value="2014-02-20"/>
 		<parameter name="VacationType" value="Vacation"/>
 		<parameter name="employeeFirstName" value="Stephen"/>
 		<parameter name="employeeLastName" value="King"/>
@@ -32,7 +32,7 @@
 		<parameter name="firstName" value="adam" />
 		<parameter name="lastName" value="thomas" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="StartDate" value="2014-02-18"/>
 		<parameter name="EndDate" value="2014-02-18"/>
 		<parameter name="VacationType" value="Sick"/>
@@ -59,7 +59,7 @@
 		<parameter name="firstName" value="adam" />
 		<parameter name="lastName" value="thomas" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="StartDate" value="2014-02-19"/>
 		<parameter name="EndDate" value="2014-02-19"/>
 		<parameter name="VacationType" value="Floating Holiday"/>

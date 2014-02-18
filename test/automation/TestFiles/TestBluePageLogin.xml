@@ -5,7 +5,7 @@
 		<parameter name="firstName" value="adam" />
 		<parameter name="lastName" value="thomas" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="UserRole" value="Normal" />
 	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
 		<classes>
@@ -27,7 +27,7 @@
 		<parameter name="firstName" value="lateef" />
 		<parameter name="lastName" value="thomas" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="UserRole" value="Normal" />
 	<!--  	<parameter name="ChallengeLink" value="Bronze" />		-->
 		<classes>

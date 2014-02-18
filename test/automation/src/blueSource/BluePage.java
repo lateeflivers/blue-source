@@ -23,7 +23,8 @@ public abstract class BluePage {
 	protected WebElement element;
 	public String url;
 	private static final String showInactiveXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/label";
-	private static final String addEmployeeBtnXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/button";
+	//private static final String addEmployeeBtnXpath = ".//*[@id='ng-app']/div[2]/div/div[2]/button";
+	private static final String addEmployeeBtnXpath = ".//button";
 	/**
 	 * Constructor base for pages
 	 * @param driver
@@ -95,6 +96,7 @@ public abstract class BluePage {
 			driver.findElement(locator); 
 			return true;
 		}catch(NoSuchElementException ne){
+//			System.err.println("Element not found");
 			return false;
 		}
 		

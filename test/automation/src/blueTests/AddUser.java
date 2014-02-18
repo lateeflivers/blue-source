@@ -32,8 +32,11 @@ public class AddUser extends BastTest {
 	@Test(description="Open new employee modal")
 	public void ClickAddNewEmployee(){
 		BlueIndex indexPage = new BlueIndex(driver);
-		//indexPage.addEmployee();
-		driver.findElement(By.xpath(".//*[@id='ng-app']/div[2]/div/div/button")).click();
+//		indexPage.addEmployee();   
+	//	driver.findElement(By.xpath(".//*[@id='ng-app']/div[2]/div/div/button")).submit();
+		driver.findElement(By.xpath(".//*[@id='ng-app']/div[2]/div/div/button")).click();//
+//		driver.findElement(By.cssSelector(".btn.btn-default")).click();
+		assertTrue(indexPage.isElementPresentAndDisplayed(By.xpath(".//*[@id='modal_label_1']")));
 	}
 	
 	@Test(description="Add and enter employee tables")

@@ -2,8 +2,7 @@ package blueSource;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-import com.thoughtworks.selenium.Selenium;
+import blueModal.BlueManageEmployeeModal;
 
 
 /**
@@ -18,7 +17,10 @@ public class BlueEmployee extends BluePage{
 	private boolean generalInfoExpanded;
 	private boolean projectInfoExpanded;
 	private boolean timeOffInfoExpanded;
-
+	public BlueManageEmployeeModal EmployeeModal;
+	private double years;
+	private double months;
+	private double days;
 	
 	private static final String manageTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[2]";
 	private static final String viewTimeOffXpath = ".//*[@id='accordion']/div/div[7]/div[1]/a[1]";
@@ -28,6 +30,7 @@ public class BlueEmployee extends BluePage{
 	private static final String generalTabBarXpath =".//*[@id='accordion']/div/div[3]";
 	private static final String projectTabBarXpath =".//*[@id='accordion']/div/div[5]";
 	private static final String timeOffTabBarXpath = ".//*[@id='accordion']/div/div[7]";
+	private static final String timeWithOrasiXpath =".//*[@id='panel_body_1']/div/table/tbody/tr[9]/td[2]";
 	
 	/**
 	 * Default constructor
@@ -38,7 +41,7 @@ public class BlueEmployee extends BluePage{
 		generalInfoExpanded = true;
 		projectInfoExpanded = false;
 		timeOffInfoExpanded = false;
-
+		EmployeeModal = new BlueManageEmployeeModal(driver);
 	}
 
 	/**
@@ -133,6 +136,17 @@ public class BlueEmployee extends BluePage{
 		return panel;
 	}
 	
+	public void setTimeWithCompany(){
+		String TimeToDateString = getWebElementBy(By.xpath(timeWithOrasiXpath)).getText();
+		String[] YearMonthDay = TimeToDateString.split(",");
+		years = Double.parseDouble(YearMonthDay[0]);
+		
+	}
+	
+	
+	public double getYears(){
+		return years;
+	}
 	/*Manage Employee Modal*/
 	//TODO add all fields for Manage Employee Modal
 	

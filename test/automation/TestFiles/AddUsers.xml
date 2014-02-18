@@ -5,7 +5,7 @@
 		<parameter name="firstName" value="linley" />
 		<parameter name="lastName" value="love" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="UserRole" value="Normal" />
 		<parameter name="empfirstName" value="test"/>
 		<parameter name="emplastName" value="manager2"/>
@@ -37,7 +37,7 @@
 		<parameter name="firstName" value="linley" />
 		<parameter name="lastName" value="love" />
 		<parameter name="password" value="anything" />
-		<parameter name="url" value="http://10.238.242.37:3333/login" />
+		<parameter name="url" value="http://bluesourcestaging.herokuapp.com/" />
 		<parameter name="UserRole" value="Normal" />
 		<parameter name="empfirstName" value="test"/>
 		<parameter name="emplastName" value="consultant2"/>

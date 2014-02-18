@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import blueModal.TimeOffDetailsModal;
 
 /**
  * Time off details page
@@ -20,7 +21,7 @@ public class BlueTimeOff extends BluePage{
 	private int maxRows;
 	private int targetRow;
 	
-	
+	private TimeOffDetailsModal DetailsModal;
 
 	private static final int VACATION_TYPE_COL = 5;
 	private static final int HALF_DAY_COL = 6;
@@ -39,11 +40,11 @@ public class BlueTimeOff extends BluePage{
 	private static final String SaveTimeOffBtn = ".//*[@id='vacation_form']/input[11]";
 	private static final String alertMessageXpath ="html/body/div[1]/div[1]/div[1]";
 	private static final String BackBtnXpath = ".//*[@id='vacation_form']/a";
+	private static final String DetailsModalXpath ="html/body/div[1]/div[1]/div/a";
 	
-	
-	private static int[] sickDays;
-	private static int[] vacationDays;
-	private static int[] floatingHolidays;
+	private static double[] sickDays;
+	private static double[] vacationDays;
+	private static double[] floatingHolidays;
 	
 	/**
 	 * Constructor for Time Off Page
@@ -56,11 +57,11 @@ public class BlueTimeOff extends BluePage{
 		trCollection = driver.findElements(By.className("vacation-row"));
 		maxRows = trCollection.size();
 		
-		sickDays = new int[2];
+		sickDays = new double[2];
 		setSickDays();
-		vacationDays = new int[2];
+		vacationDays = new double[2];
 		setVacationDays();
-		floatingHolidays = new int[2];
+		floatingHolidays = new double[2];
 		setFloatingHolidays();
 		
 
@@ -193,8 +194,8 @@ public class BlueTimeOff extends BluePage{
 	public void setSickDays(){
 		String[] days = setDaysUsedAndMax(SICK_DAYS_WELL);
 		
-		sickDays[DAYS_USED] = Integer.parseInt(days[DAYS_USED]);
-		sickDays[DAYS_MAX] = Integer.parseInt(days[DAYS_MAX]);
+		sickDays[DAYS_USED] = Double.parseDouble(days[DAYS_USED]);
+		sickDays[DAYS_MAX] = Double.parseDouble(days[DAYS_MAX]);
 	}
 	
 	/**
@@ -204,9 +205,9 @@ public class BlueTimeOff extends BluePage{
 	 */
 	public void setVacationDays(){
 		String[] days = setDaysUsedAndMax(VACATION_DAYS_WELL);
-		vacationDays[DAYS_USED] = Integer.parseInt(days[DAYS_USED]);
+		vacationDays[DAYS_USED] = Double.parseDouble(days[DAYS_USED]);
 		
-		vacationDays[DAYS_MAX] = Integer.parseInt(days[DAYS_MAX]);
+		vacationDays[DAYS_MAX] = Double.parseDouble(days[DAYS_MAX]);
 	}
 	
 	/**
@@ -215,8 +216,8 @@ public class BlueTimeOff extends BluePage{
 	public void setFloatingHolidays(){
 		String[] days = setDaysUsedAndMax(FLOATING_HOLIDAYS_WELL);
 		
-		floatingHolidays[DAYS_USED] = Integer.parseInt(days[DAYS_USED]);
-		floatingHolidays[DAYS_MAX] = Integer.parseInt(days[DAYS_MAX]);
+		floatingHolidays[DAYS_USED] = Double.parseDouble(days[DAYS_USED]);
+		floatingHolidays[DAYS_MAX] = Double.parseDouble(days[DAYS_MAX]);
 	}
 	
 	/**
@@ -242,7 +243,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of used sick days
 	 */
-	public int getSickDaysUsed(){
+	public double getSickDaysUsed(){
 		return getDaysUsed(sickDays);
 	}
 	
@@ -252,7 +253,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of max sick days
 	 */
-	public int getSickDaysMax(){
+	public double getSickDaysMax(){
 		return getDaysMax(sickDays);
 	}
 	
@@ -262,7 +263,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of used vacation days
 	 */
-	public int getVacationDaysUsed(){
+	public double getVacationDaysUsed(){
 		return getDaysUsed(vacationDays);
 	}
 	
@@ -272,7 +273,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of estimated max vacation days
 	 */
-	public int getVacationDaysMax(){
+	public double getVacationDaysMax(){
 		return getDaysMax(vacationDays);
 	}
 	
@@ -282,7 +283,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of used floating holidays
 	 */
-	public int getFloatingHolidaysUsed(){
+	public double getFloatingHolidaysUsed(){
 		return getDaysUsed(floatingHolidays);
 	}
 	
@@ -292,7 +293,7 @@ public class BlueTimeOff extends BluePage{
 	 * Jan 24, 2014
 	 * @return number of max floating holidays
 	 */
-	public int getFloatingHolidaysMax(){
+	public double getFloatingHolidaysMax(){
 		return getDaysMax(floatingHolidays);
 	}
 	
@@ -316,7 +317,7 @@ public class BlueTimeOff extends BluePage{
 	 * @param days floatingHolidays, vacationDays, or sickDays
 	 * @return number of used days for the indicated field
 	 */
-	private int getDaysUsed(int[] days){
+	private double getDaysUsed(double[] days){
 		return days[DAYS_USED];
 	}
 	
@@ -327,7 +328,7 @@ public class BlueTimeOff extends BluePage{
 	 * @param days floatingHolidays, vacationDays, or sickDays
 	 * @return number of maximum days for the indicated field
 	 */
-	private int getDaysMax(int[] days){
+	private double getDaysMax(double[] days){
 		return days[DAYS_MAX];
 	}
 	
@@ -425,5 +426,22 @@ public class BlueTimeOff extends BluePage{
 		deleteVacation(1);
 	}
 	
+
+	/**
+	 * Opens the details modal
+	 */
+	public void openDetails(){
+		getWebElementBy(By.xpath(DetailsModalXpath)).click();
+		DetailsModal = new TimeOffDetailsModal(driver);
+	}
+	
+	/**
+	 * Gets the Number of vacation days accured to date. 
+	 * @return number of vacation days
+	 */
+	public double getAccrualToDate(){
+	//	System.out.println(DetailsModal.getAccruedTodate());
+		return DetailsModal.getAccruedTodate();
+	}
 	
 }
