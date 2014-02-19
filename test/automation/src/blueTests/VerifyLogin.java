@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import blueSource.BlueLogin;
 
 
-public class VerifyLoginLateef {
+public class VerifyLogin {
 
 	private static WebDriver driver;
 	

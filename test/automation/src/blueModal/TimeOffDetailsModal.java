@@ -5,6 +5,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+/**
+ * Class that handles access to the Details Modal in the Time Off page
+ * @author Lateef
+ *
+ */
 public class TimeOffDetailsModal {
 	
 	private WebDriver driver; 

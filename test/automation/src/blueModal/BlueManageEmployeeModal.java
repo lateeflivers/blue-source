@@ -144,7 +144,6 @@ public class BlueManageEmployeeModal {
 	public void setEmail(String firstName, String lastName){
 		String email =firstName+"."+lastName+"@orasi.com";
 		setPath(email,By.xpath(EmailXpath));
-	//	driver.findElement(By.xpath(EmailXpath)).sendKeys(firstName+"."+lastName+"@orasi.com");
 	}
 	
 	/**
